@@ -3,7 +3,6 @@ package com.example.loginandregistr;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +17,6 @@ public class HelloApplication extends Application {
 //        DB db = new DB();
 //        db.r();
         stage.setScene(scene);
-        // Font.loadFont(getClass().getResourceAsStream("/fonts/Play/Play-Regular.ttf"), 33);
         stage.show();
     }
     public static void main(String[] args) {

@@ -34,7 +34,7 @@ public class DB {
         ResultSet res = statement.executeQuery();
         if(res.next()) {
             conn = null;
-            return "такой пользователь уже существует";
+            return "Пользователь с таким адресом электронной почты уже существует";
         }
         sql = "Insert into users (name_user, password_user, mail_user, id_role, surname_user) values (?,?,?,2,?)";
         statement = conn.prepareStatement(sql);

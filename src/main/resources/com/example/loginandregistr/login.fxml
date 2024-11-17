@@ -5,34 +5,43 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.logController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.logController">
    <children>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="523.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="вход">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../logo.png" />
+               </image></ImageView>
+            <Label styleClass="textRegAndLog" text="вход">
                <font>
-                  <Font name="System Bold" size="31.0" />
+                  <Font name="Iosevka NF Heavy Oblique" size="31.0" />
                </font>
+               <padding>
+                  <Insets bottom="50.0" top="-10.0" />
+               </padding>
             </Label>
-            <TextField fx:id="loginText" prefHeight="38.0" prefWidth="523.0" promptText="Login">
+            <TextField fx:id="loginText" maxWidth="1000.0" prefHeight="38.0" prefWidth="523.0" promptText="Вход" styleClass="inputField">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </TextField>
-            <PasswordField fx:id="passwordText" prefHeight="39.0" prefWidth="223.0" promptText="Password">
+            <PasswordField fx:id="passwordText" maxWidth="1000.0" prefHeight="39.0" prefWidth="223.0" promptText="Пароль" styleClass="inputField">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
             </PasswordField>
             <HBox alignment="CENTER" prefHeight="41.0" prefWidth="523.0" spacing="80.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#logIn" prefHeight="41.0" prefWidth="128.0" text="log in" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="41.0" prefWidth="128.0" text="registration">
+                  <Button mnemonicParsing="false" onMouseClicked="#logIn" prefHeight="41.0" prefWidth="128.0" styleClass="buttons" text="Вход" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#registration" prefHeight="49.0" prefWidth="275.0" styleClass="buttons" text="Зарегистрироваться">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

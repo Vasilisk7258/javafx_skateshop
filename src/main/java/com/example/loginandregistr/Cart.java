@@ -85,14 +85,14 @@ public class Cart implements Initializable {
     }
     public void back(MouseEvent event) throws IOException {
         Scene stage =((Node) event.getSource()).getScene();
-        stage.setRoot(FXMLLoader.load(getClass().getResource("hello-view.fxml")));
+        stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
     }
     public void addToCart(MouseEvent event) throws IOException{
         cart.setText("добавлен");
         cart.setDisable(true);
         HomePageController.user.cart.add(new ProductInCart(product));
         Scene stage = ((Node) event.getSource()).getScene();
-        stage.setRoot(FXMLLoader.load(getClass().getResource("hello-view.fxml")));
+        stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
 
     }
     public void changeProduct(MouseEvent event) {
@@ -168,7 +168,7 @@ public class Cart implements Initializable {
     public void deleteProduct(MouseEvent event) throws SQLException, ClassNotFoundException, IOException{
         db.deleteProduct(product);
         Scene stage = ((Node) event.getSource()).getScene();
-        stage.setRoot(FXMLLoader.load(getClass().getResource("hello-view.fxml")));
+        stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
     }
 
 }

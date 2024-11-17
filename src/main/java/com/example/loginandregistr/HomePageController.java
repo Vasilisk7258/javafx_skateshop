@@ -173,7 +173,7 @@ public class HomePageController implements Initializable {
             alert.showAndWait();
         }
         Scene stage = (Scene) ((Node) event.getSource()).getScene();
-        stage.setRoot(FXMLLoader.load(getClass().getResource("hello-view.fxml")));
+        stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
 
     }
     public void showOrders(MouseEvent event) throws IOException{

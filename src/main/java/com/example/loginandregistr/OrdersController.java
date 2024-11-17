@@ -56,7 +56,7 @@ public class OrdersController implements Initializable {
     @FXML
     public void catalog(MouseEvent  event) throws IOException {
         Scene stage = (Scene) ((Node) event.getSource()).getScene();
-        stage.setRoot(FXMLLoader.load(getClass().getResource("hello-view.fxml")));
+        stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
     }
     public void showSchedule(MouseEvent event) throws IOException{
         Scene stage = (Scene) ((Node) event.getSource()).getScene();

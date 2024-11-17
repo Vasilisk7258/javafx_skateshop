@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="300.0" prefHeight="1100.0" prefWidth="1200.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="300.0" prefHeight="1100.0" prefWidth="1200.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.Registration">
    <children>
       <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="300.0" prefHeight="556.0" prefWidth="523.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="300.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../image.png" />
+                  <Image url="@../../../logo.png" />
                </image>
             </ImageView>
             <Label fx:id="test" styleClass="textRegAndLog" text="регистрация" textFill="#64655c" wrapText="true">

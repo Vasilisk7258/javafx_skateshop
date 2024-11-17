@@ -3,6 +3,9 @@
 }
 .textRegAndLog {
   -fx-text-fill: #999999;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 45px;
 }
 .inputField {
   -fx-control-inner-background: #3d3d30;
@@ -13,6 +16,9 @@
   -fx-background-radius: 10px;
   -fx-border-radius: 10px;
   -fx-border-width: 2px;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 24px;
   /* -fx-focus-color: green; */
   /* -fx-faint-focus-color: transparent; */
 }
