@@ -20,3 +20,15 @@
   -fx-border-color: #f2f28a;
   -fx-faint-focus-color: transparent;
 }
+.buttons {
+  -fx-background-color: #9b9b3b00;
+  -fx-text-fill: #999999;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-underline: true;
+  -fx-font-size: 25px;
+}
+.buttons:hover {
+  -fx-text-fill: #26beb1;
+  -fx-cursor: hand;
+}
