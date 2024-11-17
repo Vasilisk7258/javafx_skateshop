@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1200.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.HelloController">
+   <children>
+      <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="556.0" prefWidth="523.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="300.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../image.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="test" styleClass="textRegAndLog" text="регистрация" textFill="#64655c" wrapText="true">
+               <VBox.margin>
+                  <Insets bottom="50.0" top="-10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NFM Heavy Oblique" size="45.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameText" maxHeight="48.0" maxWidth="1000.0" prefHeight="38.0" prefWidth="523.0" promptText="Имя" styleClass="inputField">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NF Heavy Oblique" size="24.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="surnameText" maxHeight="48.0" maxWidth="1000.0" prefHeight="38.0" prefWidth="523.0" promptText="Фамилия" styleClass="inputField">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NF Heavy Oblique" size="24.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="passwordText" maxHeight="48.0" maxWidth="1000.0" prefHeight="39.0" prefWidth="223.0" promptText="Пароль" styleClass="inputField">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NF Heavy Oblique" size="24.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="passwordTextOnce" maxHeight="48.0" maxWidth="1000.0" prefHeight="39.0" prefWidth="223.0" promptText="Пароль ещё раз" styleClass="inputField">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NF Heavy Oblique" size="24.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="mailText" maxHeight="48.0" maxWidth="1000.0" prefHeight="38.0" prefWidth="523.0" promptText="Почта" styleClass="inputField">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Iosevka NF Heavy Oblique" size="24.0" />
+               </font>
+            </TextField>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="523.0" spacing="80.0">
+               <children>
+                  <Button fx:id="signUpButton" mnemonicParsing="false" onMouseClicked="#signUp" prefHeight="41.0" prefWidth="128.0" text="sign up" />
+                  <Button fx:id="logInButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#logIn" prefHeight="41.0" prefWidth="128.0" text="log in">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

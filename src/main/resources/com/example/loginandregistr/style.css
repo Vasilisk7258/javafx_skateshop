@@ -1,0 +1,22 @@
+.background {
+  -fx-background-color: #25251f;
+}
+.textRegAndLog {
+  -fx-text-fill: #999999;
+}
+.inputField {
+  -fx-control-inner-background: #3d3d30;
+  -fx-border-color: #a1a19a;
+  /* -fx-background-color: #3d3d30; */
+  -fx-text-fill: #e3e3e1;
+  -fx-prompt-text-fill: #999999;
+  -fx-background-radius: 10px;
+  -fx-border-radius: 10px;
+  -fx-border-width: 2px;
+  /* -fx-focus-color: green; */
+  /* -fx-faint-focus-color: transparent; */
+}
+.inputField:focused {
+  -fx-border-color: #f2f28a;
+  -fx-faint-focus-color: transparent;
+}

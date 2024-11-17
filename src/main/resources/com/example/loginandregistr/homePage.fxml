@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.Cart">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#back" text="назад">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Pane prefHeight="88.0" prefWidth="364.0" />
+                              <StackPane prefHeight="94.0" prefWidth="370.0">
+                                 <children>
+                                    <Label fx:id="name" alignment="CENTER" prefHeight="94.0" prefWidth="370.0" text="Скейтборд в сборе HABITAT x PINK FLOYD Dark Side of the Moon Complete" wrapText="true" StackPane.alignment="CENTER" />
+                                    <TextArea fx:id="nameField" prefHeight="200.0" prefWidth="200.0" visible="false" wrapText="true" StackPane.alignment="CENTER" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="367.0" prefWidth="1198.0">
+                           <children>
+                              <ImageView fx:id="img" fitHeight="362.0" fitWidth="300.0" onMouseClicked="#updatePhoto" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox alignment="CENTER" prefHeight="594.0" prefWidth="515.0" spacing="10.0">
+                                 <children>
+                                    <StackPane prefHeight="41.0">
+                                       <children>
+                                          <Label fx:id="price" text="12830">
+                                             <font>
+                                                <Font size="29.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="priceField" prefHeight="41.0" prefWidth="433.0" promptText="введите цену" visible="false" wrapText="true" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="48.0" prefWidth="200.0">
+                                       <children>
+                                          <Label fx:id="size" text="Рамзер: 7.5">
+                                             <font>
+                                                <Font size="33.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="sizeField" prefHeight="200.0" prefWidth="200.0" visible="false" wrapText="true" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="stackDiscount" prefHeight="48.0" prefWidth="200.0" visible="false">
+                                       <children>
+                                          <Label fx:id="discont" text="Скидка:">
+                                             <font>
+                                                <Font size="33.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="discountField" prefHeight="200.0" prefWidth="200.0" visible="false" wrapText="true" />
+                                       </children>
+                                    </StackPane>
+                                    <Button fx:id="cart" mnemonicParsing="false" onMouseClicked="#addToCart" prefHeight="100.0" prefWidth="200.0" text="в корзину" />
+                                    <TextField fx:id="kolvoText" editable="false" promptText="количество">
+                                       <VBox.margin>
+                                          <Insets left="200.0" right="200.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <StackPane prefHeight="164.0" prefWidth="1198.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="description" text="Описание товара:\nСкейтборд в сборе. Подойдёт для начинающих и прогрессирующих райдеров и любого места катания, будь то улица или скейт-парк.  Коллаборация с Pink Floyd. Графика: обложка альбома &quot;Dark Side of the Moon&quot;. Коллекция 2024Размер: 8.25&quot; х 32.25&quot;Колёсная база: 14.25&quot;7 слоёв 100% канадского клёнаКолёса: Habitat 56 мм 99аПодвески: HabitatПодшипники: Abec-5Сделаны в Мексике на «BBS» - одной из лучших фабрик в мире!" wrapText="true" />
+                              <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" promptText="введите описание" visible="false" wrapText="true" />
+                           </children>
+                        </StackPane>
+                        <HBox fx:id="adminButtons" alignment="CENTER" prefHeight="43.0" prefWidth="1198.0" spacing="50.0" visible="false">
+                           <children>
+                              <Button fx:id="change" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#changeProduct" text="изменить" />
+                              <Button alignment="CENTER" onMouseClicked="#deleteProduct" mnemonicParsing="false" text="удалить" />
+                              <Button fx:id="saveDifsB" alignment="CENTER" layoutX="639.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#save" text="сохранить изменения" visible="false" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
