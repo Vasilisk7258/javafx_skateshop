@@ -28,6 +28,9 @@
   -fx-font-style: italic;
   -fx-font-size: 30px;
 }
+.table-o .table-row-cell:selected {
+  -fx-background-color: #323838;
+}
 .table-o .scroll-bar:vertical .thumb {
   -fx-background-color: #0effff;
 }

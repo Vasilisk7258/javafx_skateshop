@@ -38,15 +38,23 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="635.0" prefWidth="457.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" prefHeight="635.0" prefWidth="457.0" spacing="20.0" HBox.hgrow="ALWAYS">
                            <children>
+                              <Label styleClass="text_other" text="Свободные даты" />
                               <TableView fx:id="tableSchedule" prefHeight="653.0" prefWidth="100.0" styleClass="table" VBox.vgrow="ALWAYS" />
                            </children>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
                         </VBox>
-                        <VBox prefHeight="635.0" prefWidth="457.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="TOP_CENTER" prefHeight="635.0" prefWidth="457.0" spacing="20.0" HBox.hgrow="ALWAYS">
                            <children>
+                              <Label styleClass="text_other" text="Ваши записи" />
                               <TableView fx:id="usersSchedule" prefHeight="635.0" prefWidth="458.0" styleClass="table" VBox.vgrow="ALWAYS" />
                            </children>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
                         </VBox>
                      </children>
                      <VBox.margin>

@@ -18,7 +18,7 @@ public class Schedule {
         this.id = id;
         this.addButton = new Button("записаться");
         addButton.setPrefWidth(200);
-        addButton.getStyleClass().add("buttons");
+        addButton.getStyleClass().add("buttons_pm");
         addButton.setPrefHeight(26);
         addButton.setOnAction(event -> {
            this.clicked = true;

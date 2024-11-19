@@ -44,11 +44,13 @@ public class ScheduleController implements Initializable {
         userLogo.setText(HomePageController.user.name +" "+ HomePageController.user.surname);
         tableSchedule.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableSchedule.setEditable(true);
+        tableSchedule.setPlaceholder(new Label(""));
         TableColumn<Schedule, String> time = new TableColumn<>("дата");
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         TableColumn<Schedule, Button> but = new TableColumn<>();
         but.setCellValueFactory(new PropertyValueFactory<>("addButton"));
         but.setEditable(true);
+
 //        TableColumn<ProductInCart, String> quantityColumn = new TableColumn<>("цена");
 //        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 //        quantityColumn.setEditable(true);
@@ -63,6 +65,7 @@ public class ScheduleController implements Initializable {
         usersSchedule.setEditable(true);
         TableColumn<Schedule, String> times = new TableColumn<>("дата");
         times.setCellValueFactory(new PropertyValueFactory<>("time"));
+        usersSchedule.setPlaceholder(new Label(""));
 //        TableColumn<ProductInCart, String> quantityColumn = new TableColumn<>("цена");
 //        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 //        quantityColumn.setEditable(true);
