@@ -16,6 +16,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -49,6 +52,8 @@ public class HomePageController implements Initializable {
     TextField userMailField;
     @FXML
     Button addNew;
+    @FXML
+    ScrollPane s;
     private List<Product> pr = new ArrayList<>();
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,6 +67,18 @@ public class HomePageController implements Initializable {
 //             ? userMailField.setText("") : userMailField.setText(user.userMail);
 
         }
+        double cornerRadius = 90.0;
+
+        // Создание clip для ScrollPane
+        Rectangle clip = new Rectangle();
+        clip.setArcHeight(cornerRadius);
+        clip.setArcWidth(cornerRadius);
+        clip.widthProperty().bind(s.widthProperty());
+        clip.heightProperty().bind(s.heightProperty());
+        clip.setStrokeWidth(5);
+        clip.setStroke( Color.BLACK);
+        
+        s.setClip(clip);
         userLogo.setText(user.name + " " + user.surname);
 //        System.out.println(user);
         try {
@@ -73,8 +90,9 @@ public class HomePageController implements Initializable {
         cartTable.setEditable(true);
         TableColumn<ProductInCart, ImageView> imageColumn = new TableColumn<>("Товар");
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("image"));
-        imageColumn.setMinWidth(50); // Установка минимальной ширины в 50 пикселей
-        imageColumn.setPrefWidth(50);
+        // imageColumn.setMinWidth(50); // Установка минимальной ширины в 50 пикселей
+        // imageColumn.setPrefWidth(50);
+        // imageColumn.setCellFactory(col -> new CenteredTableCell<>());
         imageColumn.setCellFactory(column -> new TableCell<ProductInCart, ImageView>() {
             private final ImageView imageView = new ImageView();
             @Override
@@ -86,23 +104,31 @@ public class HomePageController implements Initializable {
                     imageView.setImage(item.getImage());
 
                     // Установка размеров изображения в зависимости от ширины колонки
-                    double columnWidth = imageColumn.getWidth();
+                    double columnWidth = imageColumn.getWidth()-6;
                     imageView.setFitWidth(columnWidth);
-                    imageView.setFitHeight(columnWidth);
+                    imageView.setFitHeight(columnWidth+10);
                     imageView.setPreserveRatio(true);
-
+                    
                     setGraphic(imageView);
                 }
             }
         });
+        imageColumn.setReorderable(false);
+        
         TableColumn<ProductInCart, HBox> infoColumn = new TableColumn<>("количество");
         infoColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        infoColumn.setEditable(true);
+       
+        infoColumn.setReorderable(false);
         TableColumn<ProductInCart, String> quantityColumn = new TableColumn<>("цена");
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        quantityColumn.setEditable(true);
+        // 
+        quantityColumn.setReorderable(false);
 
         cartTable.getColumns().addAll(imageColumn, infoColumn, quantityColumn);
+        cartTable.setPlaceholder(new Label(""));
+        imageColumn.setMinWidth(imageColumn.getWidth());
+        quantityColumn.setMinWidth(quantityColumn.getWidth());
+        infoColumn.setMinWidth(infoColumn.getWidth());
         if(user.cart != null) {
             cartTable.setItems(user.cart);
             refreshSum(user.cart);

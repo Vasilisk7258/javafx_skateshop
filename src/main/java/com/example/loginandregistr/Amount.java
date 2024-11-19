@@ -45,9 +45,10 @@ public class Amount implements Initializable {
                     }
                 }
                 item.setPrice(item.kolvo * item.product.price);
+                amountText.setText(""+item.kolvo);
                 f.edit(list.indexOf(item), f.getColumns().get(2));
                 f.edit(list.indexOf(item), f.getColumns().getFirst());
-                amountText.setText(""+item.kolvo);
+                f.refresh();
             }
         }
         try{
@@ -77,18 +78,18 @@ public class Amount implements Initializable {
                     alert.setContentText("большего количества нет на складе");
                     alert.setHeaderText(null);
                     alert.showAndWait();
-                    break;
                 }
+                else{
                 item.kolvo +=1;
                 item.setPrice(item.kolvo * item.product.price);
                 f.edit(list.indexOf(item), f.getColumns().get(2));
                 f.edit(list.indexOf(item), f.getColumns().getFirst());
                 amountText.setText(""+item.kolvo);
+                }
             }
             sum += item.getPrice();
-            sumT.setText("Общая стоимость: "+sum);
         }
-
+        sumT.setText("Общая стоимость: "+sum);
     }
 
 

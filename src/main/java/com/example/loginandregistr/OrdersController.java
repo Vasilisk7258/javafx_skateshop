@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,9 +25,12 @@ import java.util.ResourceBundle;
 public class OrdersController implements Initializable {
     @FXML
     public TableView<OrderProduct> ordersTable;
+    @FXML
+    public Label userLogo;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        userLogo.setText(HomePageController.user.name+ " " + HomePageController.user.surname);
         ordersTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         ordersTable.setEditable(true);
         TableColumn<OrderProduct, Integer> numberOrder = new TableColumn<>("Номер заказа");
@@ -39,7 +43,7 @@ public class OrdersController implements Initializable {
         TableColumn<OrderProduct, String> statusColumn = new TableColumn<>("Статус");
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         statusColumn.setEditable(true);
-
+        ordersTable.setPlaceholder(new Label(""));
         ordersTable.getColumns().addAll(numberOrder, sumColumn, statusColumn);
         DB db = new DB();
         try {

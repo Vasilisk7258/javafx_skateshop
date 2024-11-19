@@ -10,7 +10,7 @@
 .inputField {
   -fx-control-inner-background: #3d3d30;
   -fx-border-color: #a1a19a;
-  /* -fx-background-color: #3d3d30; */
+  -fx-background-color: #3d3d30;
   -fx-text-fill: #e3e3e1;
   -fx-prompt-text-fill: #999999;
   -fx-background-radius: 10px;
@@ -37,4 +37,128 @@
 .buttons:hover {
   -fx-text-fill: #26beb1;
   -fx-cursor: hand;
+}
+.comboBox {
+  /* -fx-control-inner-background: #3d3d30; */
+  -fx-border-color: #a1a19a;
+  -fx-background-color: #3d3d30;
+  -fx-text-fill: #e3e3e1;
+  /* -fx-prompt-text-fill: #999999; */
+  -fx-background-radius: 10px;
+  -fx-border-radius: 10px;
+  -fx-border-width: 2px;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 24px;
+  -fx-cursor: hand;
+  /* -fx-focus-color: green; */
+  /* -fx-faint-focus-color: transparent; */
+}
+.comboBox:focused {
+  -fx-border-color: #f2f28a;
+}
+.comboBox .text {
+  -fx-text-fill: white;
+}
+.comboBox .list-view {
+  -fx-background-color: #3d3d30;
+  -fx-border-radius: 10px;
+}
+.comboBox .list-view .list-cell {
+  -fx-text-fill: white;
+  -fx-cursor: hand;
+  -fx-background-color: #3d3d30;
+}
+.comboBox .list-cell {
+  -fx-text-fill: #a1a19a;
+}
+.comboBox .list-view .list-cell:hover {
+  -fx-background-color: #26beb1;
+}
+.table {
+  -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
+  -fx-background-radius: 7px;
+  -fx-border-color: #328878;
+  -fx-border-radius: 7px;
+  -fx-border-width: 1px;
+}
+.table .column-header {
+  -fx-background-color: transparent;
+}
+.table .column-header-background .label {
+  -fx-text-fill: white;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 20px;
+}
+.table .column-header-background {
+  -fx-background-color: transparent;
+  -fx-border-width: 1px;
+  -fx-border-color: transparent transparent #66dde1 transparent;
+}
+.table .table-row-cell {
+  -fx-background-color: transparent;
+}
+.table .table-cell {
+  -fx-text-fill: white;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 18px;
+}
+.table .scroll-bar:vertical .thumb {
+  -fx-background-color: #0effff;
+}
+.table .increment-button,
+.table .decrement-button {
+  -fx-background-color: transparent;
+}
+.table > .virtual-flow > .scroll-bar:vertical,
+.table > .virtual-flow > .scroll-bar:vertical > .track,
+.table > .virtual-flow > .scroll-bar:vertical > .track-background {
+  -fx-background-color: transparent;
+}
+.table .column-header-background .filler {
+  -fx-background-color: transparent;
+}
+
+.text_other {
+  -fx-text-fill: #999999;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 20px;
+}
+.buttons_pm {
+  -fx-background-color: #090909d0;
+  -fx-text-fill: #999999;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  /* -fx-underline: true; */
+  -fx-font-size: 25px;
+  -fx-border-radius: 10px;
+  -fx-border-width: 2px;
+  -fx-border-color: #414947;
+  -fx-background-radius: 10px;
+}
+.buttons_pm:hover {
+  -fx-text-fill: #26beb1;
+  -fx-cursor: hand;
+}
+.scroll-pan {
+  -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
+}
+.scroll-pan .viewport {
+  -fx-background-color: black;
+}
+.grid {
+  -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
+
+  -fx-alignment: center;
+}
+.scroll-pan .scroll-bar:vertical,
+.scroll-pan .scroll-bar:horizontal {
+  -fx-background-color: transparent;
+}
+.scroll-pan .scroll-bar:vertical .thumb,
+.scroll-pan .scroll-bar:horizontal .thumb {
+  -fx-background-color: black;
 }

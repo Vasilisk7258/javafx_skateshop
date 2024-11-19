@@ -1,0 +1,45 @@
+.table-o {
+  -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
+  -fx-background-radius: 7px;
+  -fx-border-color: #328878;
+  -fx-border-radius: 7px;
+  -fx-border-width: 1px;
+}
+.table-o .column-header {
+  -fx-background-color: transparent;
+}
+.table-o .column-header-background .label {
+  -fx-text-fill: white;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 30px;
+}
+.table-o .column-header-background {
+  -fx-background-color: transparent;
+  -fx-border-width: 1px;
+  -fx-border-color: transparent transparent #66dde1 transparent;
+}
+.table-o .table-row-cell {
+  -fx-background-color: transparent;
+}
+.table-o .table-cell {
+  -fx-text-fill: white;
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 30px;
+}
+.table-o .scroll-bar:vertical .thumb {
+  -fx-background-color: #0effff;
+}
+.table-o .increment-button,
+.table-o .decrement-button {
+  -fx-background-color: transparent;
+}
+.table-o > .virtual-flow > .scroll-bar:vertical,
+.table-o > .virtual-flow > .scroll-bar:vertical > .track,
+.table-o > .virtual-flow > .scroll-bar:vertical > .track-background {
+  -fx-background-color: transparent;
+}
+.table-o .column-header-background .filler {
+  -fx-background-color: transparent;
+}

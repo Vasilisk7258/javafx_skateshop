@@ -1,0 +1,16 @@
+.card {
+  -fx-background-color: white;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
+}
+.text {
+  -fx-font-family: "Iosevka NF Heavy Obl";
+  -fx-font-style: italic;
+  -fx-font-size: 14px;
+}
+.button {
+  -fx-background-color: black;
+  -fx-text-fill: white;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
+}

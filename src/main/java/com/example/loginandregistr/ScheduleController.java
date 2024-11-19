@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -25,6 +26,8 @@ public class ScheduleController implements Initializable {
     public TableView<Schedule> tableSchedule;
     @FXML
     public TableView<Schedule> usersSchedule;
+    @FXML
+    public Label userLogo;
     DB db = new DB();
 
 
@@ -38,6 +41,7 @@ public class ScheduleController implements Initializable {
         stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
     }
     public void initialize(URL url, ResourceBundle resourceBundle){
+        userLogo.setText(HomePageController.user.name +" "+ HomePageController.user.surname);
         tableSchedule.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         tableSchedule.setEditable(true);
         TableColumn<Schedule, String> time = new TableColumn<>("дата");

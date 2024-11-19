@@ -8,24 +8,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.Card">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="375.0" prefWidth="375.0" style="-fx-background-color: transparent;" stylesheets="@card.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.Card">
    <children>
-      <VBox fx:id="a" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="a" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="600.0" spacing="15.0" styleClass="card" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" prefHeight="185.0" prefWidth="400.0">
                <children>
-                  <ImageView fx:id="img" fitHeight="185.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="img" fitHeight="161.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></HBox>
-            <Label fx:id="name" prefHeight="88.0" prefWidth="225.0" text="Label" wrapText="true" />
-            <Label fx:id="price" prefHeight="51.0" prefWidth="225.0" text="Label" />
-            <Label fx:id="discount" layoutX="10.0" layoutY="311.0" prefHeight="51.0" prefWidth="225.0" text="Label" />
+            <Label fx:id="name" alignment="CENTER" prefHeight="101.0" prefWidth="225.0" text="Label" wrapText="true" />
+            <Label fx:id="price" alignment="CENTER" prefHeight="51.0" prefWidth="225.0" text="Label" />
+            <Label fx:id="discount" alignment="CENTER" layoutX="10.0" layoutY="311.0" prefHeight="51.0" prefWidth="225.0" text="Label" />
             <HBox alignment="CENTER" prefHeight="55.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button fx:id="addToCart" mnemonicParsing="false" onMouseClicked="#setAddToCart" text="в корзину" />
                </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

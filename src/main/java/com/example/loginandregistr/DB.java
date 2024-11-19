@@ -240,7 +240,7 @@ public class DB {
         while (res.next()){
             java.sql.Timestamp sq= res.getTimestamp("date_schedule");
 //            Locale locale = Locale.of("ru", "RU");
-            DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy \n\n HH:mm", Locale.forLanguageTag("ru-RU"));
+            DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm", Locale.forLanguageTag("ru-RU"));
             Schedule s = new Schedule((sq.toLocalDateTime()).format(dt), res.getInt("id_schedule"));
             sl.add(s);
 //            Schedule s = new Schedule(res.getDate(""));
@@ -258,7 +258,7 @@ public class DB {
         while (res.next()){
             java.sql.Timestamp sq= res.getTimestamp("date_schedule");
 //            Locale locale = Locale.of("ru", "RU");
-            DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy \n\n HH:mm", Locale.forLanguageTag("ru-RU"));
+            DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm", Locale.forLanguageTag("ru-RU"));
             Schedule s = new Schedule((sq.toLocalDateTime()).format(dt), res.getInt("id_schedule"));
             sl.add(s);
 //            Schedule s = new Schedule(res.getDate(""));

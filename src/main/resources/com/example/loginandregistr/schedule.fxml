@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1134.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.ScheduleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1134.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginandregistr.ScheduleController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -19,50 +20,54 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" text="СКВОТ">
-                           <font>
-                              <Font name="Cambria Bold" size="40.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../logo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onMouseClicked="#catalog" prefWidth="92.0" text="каталог" />
-                  <Button mnemonicParsing="false" onMouseClicked="#showOrders" text="мои заказы" />
-                  <Button fx:id="schedule" layoutX="64.0" layoutY="176.0" mnemonicParsing="false" text="расписание" />
+                  <Button mnemonicParsing="false" onMouseClicked="#catalog" prefHeight="49.0" prefWidth="126.0" styleClass="buttons" text="каталог" />
+                  <Button mnemonicParsing="false" onMouseClicked="#showOrders" styleClass="buttons" text="мои заказы" />
+                  <Button fx:id="schedule" layoutX="64.0" layoutY="176.0" mnemonicParsing="false" styleClass="buttons" text="расписание" />
                </children>
             </VBox>
          </left>
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView fx:id="tableSchedule" prefHeight="608.0" prefWidth="462.0" HBox.hgrow="ALWAYS" />
-                        <TableView fx:id="usersSchedule" prefHeight="635.0" prefWidth="433.0" HBox.hgrow="ALWAYS" />
+                        <VBox prefHeight="635.0" prefWidth="457.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TableView fx:id="tableSchedule" prefHeight="653.0" prefWidth="100.0" styleClass="table" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="635.0" prefWidth="457.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TableView fx:id="usersSchedule" prefHeight="635.0" prefWidth="458.0" styleClass="table" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
                      </children>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </center>
          <top>
-            <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="65.0" prefWidth="364.0" />
-                  <Label fx:id="userLogo" text="мой аккаунт">
+                  <Label fx:id="userLogo" styleClass="textRegAndLog" text="мой аккаунт">
                      <font>
                         <Font name="Cambria" size="20.0" />
                      </font>
-                  </Label>
-                  <Pane prefHeight="65.0" prefWidth="268.0" />
-                  <Label text="Корзина">
-                     <font>
-                        <Font name="Cambria" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </Label>
                </children>
+               <BorderPane.margin>
+                  <Insets right="50.0" />
+               </BorderPane.margin>
             </HBox>
          </top>
       </BorderPane>

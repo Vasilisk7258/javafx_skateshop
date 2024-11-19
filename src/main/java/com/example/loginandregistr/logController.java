@@ -15,11 +15,12 @@ public class logController {
     public TextField loginText;
     @FXML
     public TextField passwordText;
-
+    @FXML
     void registration(MouseEvent event) throws IOException {
         Scene stage = (Scene) ((Node) event.getSource()).getScene();
         stage.setRoot(FXMLLoader.load(getClass().getResource("registration.fxml")));
     }
+    @FXML
     void logIn(MouseEvent event) throws ClassNotFoundException, SQLException, IOException {
         DB db = new DB();
         if (loginText.getText().isEmpty() || passwordText.getText().isEmpty()) {
