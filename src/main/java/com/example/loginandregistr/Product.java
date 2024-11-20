@@ -8,7 +8,7 @@ public class Product {
     public String description;
     public float price;
     public String manufacturer;
-    public float discount;
+    public int discount;
     public String size;
     public int amount;
     public byte[] photo;

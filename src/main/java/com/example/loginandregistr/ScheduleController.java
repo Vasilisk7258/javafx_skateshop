@@ -63,5 +63,10 @@ public class ScheduleController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    public void logOut(MouseEvent event) throws IOException{
+        Scene stage = (Scene) ((Node) event.getSource()).getScene();
+        stage.setRoot(FXMLLoader.load(getClass().getResource("registration.fxml")));
+        HomePageController.user = null;
+    }
 }

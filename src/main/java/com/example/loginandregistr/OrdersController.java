@@ -58,4 +58,10 @@ public class OrdersController implements Initializable {
         Scene stage = (Scene) ((Node) event.getSource()).getScene();
         stage.setRoot(FXMLLoader.load(getClass().getResource("schedule.fxml")));
     }
+    @FXML
+    public void logOut(MouseEvent event) throws IOException{
+        Scene stage = (Scene) ((Node) event.getSource()).getScene();
+        stage.setRoot(FXMLLoader.load(getClass().getResource("registration.fxml")));
+        HomePageController.user = null;
+    }
 }

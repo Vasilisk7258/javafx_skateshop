@@ -101,7 +101,7 @@
          <top>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="200.0" styleClass="background" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="userLogo" styleClass="textRegAndLog" text="мой аккаунт">
+                  <Label fx:id="userLogo" onMouseClicked ="#logOut" styleClass="textRegAndLog" text="мой аккаунт">
                      <font>
                         <Font name="Cambria" size="20.0" />
                      </font>

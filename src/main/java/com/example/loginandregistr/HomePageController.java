@@ -152,6 +152,12 @@ public class HomePageController implements Initializable {
         }
             sumText.setText("Общая стоимость: "+sum);
     }
+    @FXML
+    public void logOut(MouseEvent event) throws IOException{
+        Scene stage = (Scene) ((Node) event.getSource()).getScene();
+        stage.setRoot(FXMLLoader.load(getClass().getResource("registration.fxml")));
+        user = null;
+    }
     public void createOrder(MouseEvent event) throws  ClassNotFoundException, SQLException, IOException{
         DB db = new DB();
         boolean isInserted = db.createOrder(cartTable.getItems(), sumText.getText(), userMailField.getText());

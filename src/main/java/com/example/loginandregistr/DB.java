@@ -88,7 +88,7 @@ public class DB {
                 product.description = res.getString("description_product");
                 product.price = res.getFloat("price_product");
                 product.manufacturer = res.getString("manufacturer");
-                product.discount = res.getFloat("discount");
+                product.discount = res.getInt("discount");
                 product.photo = res.getBytes("photo_product");
                 product.size = res.getString("size");
                 product.amount = res.getInt("quantity");

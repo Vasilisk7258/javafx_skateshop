@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -94,7 +95,7 @@ public class Cart implements Initializable {
         priceField.setText(price.getText());
         sizeField.setVisible(true);
         size.setVisible(false);
-        sizeField.setText(size.getText());
+        sizeField.setText(size.getText().substring(size.getText().indexOf(":")+2));
         descriptionField.setVisible(true);
         description.setVisible(false);
         descriptionField.setText(description.getText());
@@ -103,10 +104,41 @@ public class Cart implements Initializable {
         kolvoText.setEditable(true);
         discont.setVisible(false);
         discountField.setVisible(true);
-        discountField.setText(discont.getText());
+        discountField.setText(discont.getText().substring(discont.getText().indexOf(":")+2).replace("%", "").trim());
     }
     public void save(MouseEvent event) throws SQLException, ClassNotFoundException {
-        nameField.setVisible(false);
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        if (nameField.getText().isEmpty()){
+            alert.setContentText("поле наименования не должно быть пустым");
+        }
+        else if(priceField.getText().isEmpty()){
+            alert.setContentText("поле цены не должно быть пустым");    
+        }
+
+        else if(Float.parseFloat(priceField.getText()) <= 0){
+            alert.setContentText("Введите корректную цену");    
+        }
+
+        else if(sizeField.getText().isEmpty()){
+            alert.setContentText("поле размера не должно быть пустым");    
+        }
+        else if(Float.parseFloat(sizeField.getText()) <= 0){
+            alert.setContentText("Введите корректный размер");    
+        }
+        else if(descriptionField.getText().isEmpty()){
+            alert.setContentText("поле описания не должно быть пустым");    
+        }
+
+        else if(discountField.getText().isEmpty()){
+            alert.setContentText("поле скидки не должно быть пустым");    
+        }
+
+        else if(Integer.parseInt(discountField.getText()) < 0){
+            alert.setContentText("Введите корректную скидку");    
+        }
+        else{
+            nameField.setVisible(false);
         name.setVisible(true);
         name.setText(nameField.getText());
         product.name = name.getText();
@@ -116,7 +148,7 @@ public class Cart implements Initializable {
         product.price = Float.parseFloat(price.getText());
         sizeField.setVisible(false);
         size.setVisible(true);
-        size.setText(sizeField.getText().substring(sizeField.getText().indexOf(":")+2));
+        size.setText("Размер: "+sizeField.getText());
         product.size = size.getText();
         descriptionField.setVisible(false);
         description.setVisible(true);
@@ -128,10 +160,13 @@ public class Cart implements Initializable {
         kolvoText.setEditable(false);
         discont.setVisible(true);
         discountField.setVisible(false);
-        discont.setText(discountField.getText());
-        product.discount = Float.parseFloat(discont.getText().substring(discont.getText().indexOf(":")+2).replace("%", "").trim());
+        discont.setText("Скидка: "+discountField.getText()+"%");
+        product.discount = Integer.parseInt(discountField.getText());
         db.refreshProduct(product);
-    }
+        alert.setContentText("Успех");
+        }
+        alert.showAndWait();
+        }
     public void updatePhoto(MouseEvent event) throws SQLException, ClassNotFoundException, FileNotFoundException, IOException {
         if(HomePageController.user.isAdmin()){
             final File[] selectedFile = new File[1];
