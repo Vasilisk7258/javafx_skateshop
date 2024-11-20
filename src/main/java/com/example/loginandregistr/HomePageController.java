@@ -1,14 +1,11 @@
 package com.example.loginandregistr;
 
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,12 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -64,23 +57,17 @@ public class HomePageController implements Initializable {
             if (!user.userMail.isEmpty()) {
                 userMailField.setText(user.userMail);
             }
-//             ? userMailField.setText("") : userMailField.setText(user.userMail);
-
         }
         double cornerRadius = 90.0;
-
-        // Создание clip для ScrollPane
         Rectangle clip = new Rectangle();
         clip.setArcHeight(cornerRadius);
         clip.setArcWidth(cornerRadius);
         clip.widthProperty().bind(s.widthProperty());
         clip.heightProperty().bind(s.heightProperty());
         clip.setStrokeWidth(5);
-        clip.setStroke( Color.BLACK);
-        
+        clip.setStroke( Color.BLACK);        
         s.setClip(clip);
         userLogo.setText(user.name + " " + user.surname);
-//        System.out.println(user);
         try {
             updateTable();
         } catch (SQLException | ClassNotFoundException | IOException e) {
@@ -90,9 +77,6 @@ public class HomePageController implements Initializable {
         cartTable.setEditable(true);
         TableColumn<ProductInCart, ImageView> imageColumn = new TableColumn<>("Товар");
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("image"));
-        // imageColumn.setMinWidth(50); // Установка минимальной ширины в 50 пикселей
-        // imageColumn.setPrefWidth(50);
-        // imageColumn.setCellFactory(col -> new CenteredTableCell<>());
         imageColumn.setCellFactory(column -> new TableCell<ProductInCart, ImageView>() {
             private final ImageView imageView = new ImageView();
             @Override
@@ -102,28 +86,21 @@ public class HomePageController implements Initializable {
                     setGraphic(null);
                 } else {
                     imageView.setImage(item.getImage());
-
-                    // Установка размеров изображения в зависимости от ширины колонки
                     double columnWidth = imageColumn.getWidth()-6;
                     imageView.setFitWidth(columnWidth);
                     imageView.setFitHeight(columnWidth+10);
                     imageView.setPreserveRatio(true);
-                    
                     setGraphic(imageView);
                 }
             }
         });
         imageColumn.setReorderable(false);
-        
         TableColumn<ProductInCart, HBox> infoColumn = new TableColumn<>("количество");
         infoColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
-       
         infoColumn.setReorderable(false);
         TableColumn<ProductInCart, String> quantityColumn = new TableColumn<>("цена");
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        // 
         quantityColumn.setReorderable(false);
-
         cartTable.getColumns().addAll(imageColumn, infoColumn, quantityColumn);
         cartTable.setPlaceholder(new Label(""));
         imageColumn.setMinWidth(imageColumn.getWidth());
@@ -166,7 +143,6 @@ public class HomePageController implements Initializable {
         userMailField.textProperty().addListener((observable, oldValue, newValue) -> {
                 user.userMail = userMailField.getText();
         });
-
     }
     @FXML
     public void refreshSum(ObservableList<ProductInCart> cart){
@@ -175,9 +151,6 @@ public class HomePageController implements Initializable {
             sum += item.getPrice();
         }
             sumText.setText("Общая стоимость: "+sum);
-
-
-        System.out.println(sumText.getText());
     }
     public void createOrder(MouseEvent event) throws  ClassNotFoundException, SQLException, IOException{
         DB db = new DB();
@@ -200,7 +173,6 @@ public class HomePageController implements Initializable {
         }
         Scene stage = (Scene) ((Node) event.getSource()).getScene();
         stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
-
     }
     public void showOrders(MouseEvent event) throws IOException{
         user.cart = cartTable.getItems();
@@ -209,8 +181,6 @@ public class HomePageController implements Initializable {
     }
     private void updateTable() throws SQLException, ClassNotFoundException, IOException {
         String selectedManufacturer = user.manufacturer;
-//            System.out.println(user.search);
-            // Фильтрация данных и обновление таблицы
             pr = db.getAllProducts(selectedManufacturer, user.search);
             int column = 0;
             int row = 0;
@@ -244,8 +214,6 @@ public class HomePageController implements Initializable {
                 p.locationInGrid = new int[] {column++, row};
                 GridPane.setMargin(anchor, new Insets(10));
             }
-//            g.setItems(db.getAllProducts(selectedManufacturer,search.getText()));
-//            col.setText(dbP.getProducts(selectedManufacturer,search.getText()).size() + "/" + dbP.getCount());
         }
         public void showSchedule(MouseEvent event) throws IOException {
             Scene stage = (Scene) ((Node) event.getSource()).getScene();
@@ -254,13 +222,9 @@ public class HomePageController implements Initializable {
     public void addNewItem(MouseEvent event) {
         Dialog<ButtonType> addDialog = new Dialog<>();
         addDialog.setTitle("Добавить новый продукт");
-
         VBox addDialogPane = new VBox();
         addDialogPane.setSpacing(10);
-        addDialogPane.setPadding(new Insets(10)); // Отступы для аккуратного вида
-
-        // Поля для ввода данных
-//        TextField articleNumberField = new TextField();
+        addDialogPane.setPadding(new Insets(10));
         TextField nameField = new TextField();
         TextArea descriptionField = new TextArea();
         TextField categoryField = new TextField();
@@ -269,11 +233,8 @@ public class HomePageController implements Initializable {
         TextField discountField = new TextField();
         TextField quantityField = new TextField();
         ImageView productImageView = new ImageView();
-
         Button chooseImageButton = new Button("Выбрать изображение");
-        // Переменная для хранения изображения
         final File[] selectedFile = new File[1];
-
         chooseImageButton.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Выберите изображение");
@@ -282,7 +243,6 @@ public class HomePageController implements Initializable {
             );
             selectedFile[0] = fileChooser.showOpenDialog(addDialog.getDialogPane().getScene().getWindow());
             if (selectedFile[0] != null) {
-                // Загружаем изображение и отображаем его
                 Image image = new Image(selectedFile[0].toURI().toString());
                 productImageView.setImage(image);
                 productImageView.setFitWidth(150);
@@ -290,10 +250,7 @@ public class HomePageController implements Initializable {
                 productImageView.setPreserveRatio(true);
             }
         });
-
-        // Добавление всех элементов в диалог
         addDialogPane.getChildren().addAll(
-//                new Label("Артикул товара:"), articleNumberField,
                 new Label("Наименование товара:"), nameField,
                 new Label("Описание товара:"), descriptionField,
                 new Label("Размер:"), categoryField,
@@ -303,14 +260,12 @@ public class HomePageController implements Initializable {
                 new Label("Кол-во на складе:"), quantityField,
                 chooseImageButton,
                 new Label("Выбранное изображение:"),
-                productImageView // Отображаемое изображение
+                productImageView 
         );
-
         addDialog.getDialogPane().setContent(addDialogPane);
         ButtonType buttonTypeOk = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         ButtonType buttonTypeCancel = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
         addDialog.getDialogPane().getButtonTypes().addAll(buttonTypeOk, buttonTypeCancel);
-
         Optional<ButtonType> result = addDialog.showAndWait();
         if (result.isPresent() && result.get() == buttonTypeOk) {
             if (nameField.getText().isEmpty() || descriptionField.getText().isEmpty()
@@ -320,9 +275,7 @@ public class HomePageController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Все поля должны быть заполнены");
             }
-            // Обработка данных нового продукта
             try {
-//                String articleNumber = articleNumberField.getText();
                 String name = nameField.getText();
                 String description = descriptionField.getText();
                 String category = categoryField.getText();
@@ -330,16 +283,11 @@ public class HomePageController implements Initializable {
                 float price = Float.parseFloat(priceField.getText());
                 int discount = Integer.parseInt(discountField.getText());
                 int quantity = Integer.parseInt(quantityField.getText());
-
-                // Получение изображения в массив байтов
                 byte[] imageBytes = null;
                 if (selectedFile[0] != null) {
-                    imageBytes = Files.readAllBytes(selectedFile[0].toPath()); // Чтение файла в массив байтов
+                    imageBytes = Files.readAllBytes(selectedFile[0].toPath());
                 }
-
-                // Создание нового объекта Product
                 Product newProduct = new Product();
-//                newProduct.setProductArticleNumber(articleNumber);
                 newProduct.name = name;
                 newProduct.description = description;
                 newProduct.size = category;
@@ -347,15 +295,10 @@ public class HomePageController implements Initializable {
                 newProduct.price = price;
                 newProduct.discount = discount;
                 newProduct.amount = quantity;
-                newProduct.photo = imageBytes; // Установка массива байтов как фотографии
-
-                // Вызов метода для добавления нового продукта в базу данных
-//                dbP.addProductToDatabase(newProduct);
+                newProduct.photo = imageBytes;
                 db.addNewProduct(newProduct);
-                updateTable(); // Обновляем таблицу, чтобы отразить изменения
-
+                updateTable();
             } catch (NumberFormatException e) {
-                // Обработка некорректного ввода данных
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Ошибка ввода");
                 alert.setHeaderText("Некорректные данные");
@@ -378,5 +321,4 @@ public class HomePageController implements Initializable {
             }
         }
     }
-
 }

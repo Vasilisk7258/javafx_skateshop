@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-
 public class Card{
     @FXML
     private Label name;
@@ -29,14 +28,12 @@ public class Card{
     public HomePageController h;
     public Product product;
 
-
     public void setData(Product product) {
         this.product = product;
         if (product.discount != 0){
             discount.setText("Скидка: "+product.discount+ "%");
         }
         else discount.setVisible(false);
-
         name.setText(product.name);
         price.setText(""+(product.price - product.price*product.discount/100));
         img.setImage(new Image(new ByteArrayInputStream(product.photo)));
@@ -62,12 +59,9 @@ public class Card{
         addToCart.setText("добавлен");
         addToCart.setDisable(true);
         ((Node) event.getSource()).getScene().getWindow();
-        System.out.println(product.locationInGrid[0]);
         ProductInCart pc = new ProductInCart(product);
         TableView<ProductInCart> f =  (TableView<ProductInCart>) ((Node) event.getSource()).getScene().lookup("#cartTable");
         f.getItems().add(pc);
         h.refreshSum(f.getItems());
-
     }
-
 }

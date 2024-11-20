@@ -1,10 +1,8 @@
 package com.example.loginandregistr;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -13,14 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Cart implements Initializable {
@@ -59,20 +53,17 @@ public class Cart implements Initializable {
     public TextArea discountField;
     @FXML
     public StackPane stackDiscount;
-
     DB db = new DB();
-
     @FXML
     public void initialize(URL location, ResourceBundle resources){
         if(HomePageController.user.isAdmin()){
             adminButtons.setVisible(true);
+            kolvoText.setVisible(true);
         }
         if ((product.discount != 0) || (HomePageController.user.isAdmin())){
-            System.out.println(product.discount);
             stackDiscount.setVisible(true);
             discont.setText("Скидка: "+product.discount+ "%");
         }
-//        else discount.setVisible(false);
         kolvoText.setText(""+product.amount);
         name.setText(product.name);
         price.setText(""+(product.price - product.price*product.discount/100));
@@ -93,7 +84,6 @@ public class Cart implements Initializable {
         HomePageController.user.cart.add(new ProductInCart(product));
         Scene stage = ((Node) event.getSource()).getScene();
         stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
-
     }
     public void changeProduct(MouseEvent event) {
         nameField.setVisible(true);
@@ -150,25 +140,19 @@ public class Cart implements Initializable {
             fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
             );
-//            selectedFile[0] = fileChooser.showOpenDialog();
             selectedFile[0] = fileChooser.showOpenDialog(name.getScene().getWindow());
             if (selectedFile[0] != null) {
-                // Загружаем изображение и отображаем его
                 File file = new File(selectedFile[0].toURI());
                 db.updateImage(file, product);
                 Image image = new Image(selectedFile[0].toURI().toString());
                 img.setImage(image);
-//                img.setFitWidth(150);
-//                img.setFitHeight(150);
                 img.setPreserveRatio(true);
             }
         }
-
     }
     public void deleteProduct(MouseEvent event) throws SQLException, ClassNotFoundException, IOException{
         db.deleteProduct(product);
         Scene stage = ((Node) event.getSource()).getScene();
         stage.setRoot(FXMLLoader.load(getClass().getResource("main.fxml")));
     }
-
 }

@@ -1,11 +1,8 @@
 package com.example.loginandregistr;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 
 public class Schedule {
     String time;
@@ -38,11 +35,8 @@ public class Schedule {
                         e.printStackTrace();
                     }
                     break;
-
-
                 }
             }
-//           System.out.println(addButton.loo);
         });
     }
     public String getTime(){

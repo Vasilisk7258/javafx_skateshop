@@ -4,21 +4,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -27,7 +21,6 @@ public class OrdersController implements Initializable {
     public TableView<OrderProduct> ordersTable;
     @FXML
     public Label userLogo;
-
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         userLogo.setText(HomePageController.user.name+ " " + HomePageController.user.surname);
@@ -55,7 +48,6 @@ public class OrdersController implements Initializable {
         catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
-
     }
     @FXML
     public void catalog(MouseEvent  event) throws IOException {

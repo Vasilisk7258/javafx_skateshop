@@ -34,7 +34,7 @@ public class Registration{
     Pattern pattern = Pattern.compile(emailRegex);
     
     public void signUp(MouseEvent event) throws SQLException, ClassNotFoundException, IOException{
-        // Проверка на то, что все оля заполнены
+        // Проверка на то, что все поля заполнены
         if((nameText.getText().isEmpty()) || (surnameText.getText().isEmpty()) ||(passwordText.getText().isEmpty()) ||(passwordTextOnce.getText().isEmpty()) ||(mailText.getText().isEmpty())) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Все поля должны быть заполнены");

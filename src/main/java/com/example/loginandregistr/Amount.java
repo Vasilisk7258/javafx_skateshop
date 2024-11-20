@@ -29,11 +29,9 @@ public class Amount implements Initializable {
         int index = -1;
         Label sumT = (Label) ((Node) event.getSource()).getScene().lookup("#sumText");
         for (ProductInCart item:list){
-            System.out.println(item);
             if (((Label) item.amount.getChildren().get(1)) == amountText) {
                 item.kolvo-=1;
                 if (item.kolvo == 0) {
-//                    list.remove(item);
                     index = list.indexOf(item);
                     GridPane grid = (GridPane) ((Node) event.getSource()).getScene().lookup("#g");
                     for (Node node : grid.getChildren()) {
@@ -55,20 +53,16 @@ public class Amount implements Initializable {
             list.remove(index);
             index = -1;
         }
-        catch (Exception e) {
-
-        }
+        catch (Exception e) {}
         for (ProductInCart item: list) {
             sum += item.getPrice();
             System.out.println(sum);
         }
         sumT.setText("Общая стоимость: "+sum);
     }
-
     public void plus(MouseEvent event){
         TableView<ProductInCart> f =  (TableView<ProductInCart>) ((Node) event.getSource()).getScene().lookup("#cartTable");
         ObservableList<ProductInCart> list = f.getItems();
-
         float sum = 0;
         Label sumT = (Label) ((Node) event.getSource()).getScene().lookup("#sumText");
         for (ProductInCart item:list){
@@ -91,6 +85,4 @@ public class Amount implements Initializable {
         }
         sumT.setText("Общая стоимость: "+sum);
     }
-
-
 }

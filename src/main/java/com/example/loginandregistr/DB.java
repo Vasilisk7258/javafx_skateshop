@@ -3,13 +3,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Date;
 
 public class DB {
 
@@ -79,13 +76,11 @@ public class DB {
         if(manufacturere.contains("все ")){
             manufacturere = "";
         }
-        System.out.println(manufacturere);
         statement.setString(1, manufacturere);
         statement.setInt(2, HomePageController.user.id);
         ResultSet res = statement.executeQuery();
         List<Product> prlist = new ArrayList<>();
         while(res.next()){
-            System.out.println(search.isEmpty());
             if(search.isEmpty() || res.getString("name_product").toUpperCase().contains(search.toUpperCase())) {
                 Product product = new Product();
                 product.id = res.getInt("id_product");
@@ -104,40 +99,6 @@ public class DB {
         conn = null;
         return prlist;
     }
-    public void r() throws SQLException, ClassNotFoundException, IOException{
-        geDBConnection();
-        File file = new File("/home/vasilisqq/Downloads/sk8.jpg");
-        try (FileInputStream fis = new FileInputStream(file);
-        PreparedStatement prs = conn.prepareStatement("INSERT into products (name_product, description_product, price_product, manufacturer, discount, photo_product, size, quantity) values (?,?,?,?,?,?,?,?)")){
-            prs.setString(1, "Скейтборд в сборе HABITAT x PINK FLOYD Dark Side of the Moon Cruiser 9.0");
-            prs.setString(2,
-                    "Круизер в сборе. Подойдёт для начинающих и прогрессирующих райдеров и любого места катания. \n" +
-                    " \n" +
-                    "Коллаборация с Pink Floyd. Графика: обложка альбома \"Dark Side of the Moon\".\n" +
-                    " \n" +
-                    "Коллекция 2024\n" +
-                    "Размер: 9.0\" х 32.5\"\n" +
-                    "Колёсная база: 14\"\n" +
-                    "7 слоёв 100% канадского клёна\n" +
-                    "Колёса: Habitat 56 мм 99а\n" +
-                    "Подвески: Habitat\n" +
-                    "Подшипники: Abec-5\n" +
-                    "\n" +
-                    "Сделаны в Мексике на «BBS» - одной из лучших фабрик в мире!\n");
-            prs.setInt(3,16030);
-            prs.setString(4,"HABITAT");
-            prs.setInt(5,0);
-            prs.setBinaryStream(6, fis, (int) file.length());
-            prs.setString(7,"9.0");
-            prs.setInt(8,1);
-            prs.executeUpdate();
-            conn = null;
-        }
-        catch (SQLException|IOException e){
-            e.printStackTrace();
-        }
-
-    }
     public void updateImage(File file, Product product) throws SQLException, ClassNotFoundException, FileNotFoundException, IOException {
         geDBConnection();
         try(FileInputStream fis = new FileInputStream(file)) {
@@ -154,11 +115,8 @@ public class DB {
         conn.setAutoCommit(false);
         String json = "'{";
         for(ProductInCart item: pr){
-            System.out.println(json);
             json += ("\""+item.product.id+ "\": " );
-            System.out.println(json);
             json += ("\""+item.kolvo+ "\",");
-            System.out.println(json);
         }
         json = json.substring(0, json.length()-1);
         json+="}'";
@@ -179,7 +137,6 @@ public class DB {
             statement.setInt(2, 1);
             statement.setInt(3, (int) Double.parseDouble(sum.substring(sum.indexOf(": ")+2)));
         }
-
         try {
             statement.executeUpdate();
             conn.commit();
@@ -191,7 +148,6 @@ public class DB {
             conn = null;
             return false;
         }
-
     }
     public List<OrderProduct> getOrders() throws SQLException, ClassNotFoundException{
         geDBConnection();
@@ -212,7 +168,6 @@ public class DB {
     }
     public ObservableList<String> getManufacturer() throws SQLException, ClassNotFoundException {
         ArrayList<String> manufacturerList = new ArrayList<>();
-
         String sql = "SELECT DISTINCT manufacturer FROM products";
         geDBConnection();
         Statement statement = conn.createStatement();
@@ -239,11 +194,9 @@ public class DB {
         ResultSet res = statement.executeQuery(sql);
         while (res.next()){
             java.sql.Timestamp sq= res.getTimestamp("date_schedule");
-//            Locale locale = Locale.of("ru", "RU");
             DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm", Locale.forLanguageTag("ru-RU"));
             Schedule s = new Schedule((sq.toLocalDateTime()).format(dt), res.getInt("id_schedule"));
             sl.add(s);
-//            Schedule s = new Schedule(res.getDate(""));
         }
         conn = null;
         return FXCollections.observableArrayList(sl);
@@ -257,11 +210,9 @@ public class DB {
         ResultSet res = statement.executeQuery();
         while (res.next()){
             java.sql.Timestamp sq= res.getTimestamp("date_schedule");
-//            Locale locale = Locale.of("ru", "RU");
             DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd MMMM yyyy HH:mm", Locale.forLanguageTag("ru-RU"));
             Schedule s = new Schedule((sq.toLocalDateTime()).format(dt), res.getInt("id_schedule"));
             sl.add(s);
-//            Schedule s = new Schedule(res.getDate(""));
         }
         conn = null;
         return FXCollections.observableArrayList(sl);
@@ -292,15 +243,12 @@ public class DB {
         String sql = "INSERT INTO products (name_product, description_product, price_product, manufacturer, discount, photo_product, size, quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         geDBConnection();
         PreparedStatement pstmt = conn.prepareStatement(sql);
-
         pstmt.setString(1, product.name);
         pstmt.setString(2, product.description);
         pstmt.setInt(3, (int) product.price);
         pstmt.setString(4, product.manufacturer);
-
         pstmt.setInt(5, (int) product.discount);
-//        byte[] productPhoto = product.photo;
-        pstmt.setBytes(6, product.photo); // Установка изображения как массив байтов
+        pstmt.setBytes(6, product.photo);
         pstmt.setString(7, product.size);
         pstmt.setFloat(8, product.amount);
         pstmt.executeUpdate();
