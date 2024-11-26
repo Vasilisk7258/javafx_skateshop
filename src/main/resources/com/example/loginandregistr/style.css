@@ -1,12 +1,15 @@
+/* цвет заднего фона */
 .background {
   -fx-background-color: #25251f;
 }
+/* стиль для большого текста */
 .textRegAndLog {
   -fx-text-fill: #999999;
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
   -fx-font-size: 45px;
 }
+/* стиль для полей ввода */
 .inputField {
   -fx-control-inner-background: #3d3d30;
   -fx-border-color: #a1a19a;
@@ -19,13 +22,13 @@
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
   -fx-font-size: 24px;
-  /* -fx-focus-color: green; */
-  /* -fx-faint-focus-color: transparent; */
 }
+/* стиль, который отображается при наведении на поле ввода */
 .inputField:focused {
   -fx-border-color: #f2f28a;
   -fx-faint-focus-color: transparent;
 }
+/* стиль для кнопок */
 .buttons {
   -fx-background-color: #9b9b3b00;
   -fx-text-fill: #999999;
@@ -34,16 +37,16 @@
   -fx-underline: true;
   -fx-font-size: 25px;
 }
+/* стиль, который отображается при наведении на кнопку */
 .buttons:hover {
   -fx-text-fill: #26beb1;
   -fx-cursor: hand;
 }
+/* стиль для комбо-бокса (для выбора производителя) */
 .comboBox {
-  /* -fx-control-inner-background: #3d3d30; */
   -fx-border-color: #a1a19a;
   -fx-background-color: #3d3d30;
   -fx-text-fill: #e3e3e1;
-  /* -fx-prompt-text-fill: #999999; */
   -fx-background-radius: 10px;
   -fx-border-radius: 10px;
   -fx-border-width: 2px;
@@ -51,19 +54,21 @@
   -fx-font-style: italic;
   -fx-font-size: 24px;
   -fx-cursor: hand;
-  /* -fx-focus-color: green; */
-  /* -fx-faint-focus-color: transparent; */
 }
+/* при наведении на комбо-бокс */
 .comboBox:focused {
   -fx-border-color: #f2f28a;
 }
+/* стиль для текста в комбо-боксе */
 .comboBox .text {
   -fx-text-fill: white;
 }
+/* стиль, для элементов в комбо-боксе */
 .comboBox .list-view {
   -fx-background-color: #3d3d30;
   -fx-border-radius: 10px;
 }
+/* стиль для ячейки в списке комбо-бокса */
 .comboBox .list-view .list-cell {
   -fx-text-fill: white;
   -fx-cursor: hand;
@@ -75,6 +80,7 @@
 .comboBox .list-view .list-cell:hover {
   -fx-background-color: #26beb1;
 }
+/* стиль для таблицы */
 .table {
   -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
   -fx-background-radius: 7px;
@@ -82,15 +88,18 @@
   -fx-border-radius: 7px;
   -fx-border-width: 1px;
 }
+/* стиль для заголовков таблицы */
 .table .column-header {
   -fx-background-color: transparent;
 }
+/* стиль текста в заголовках таблиы */
 .table .column-header-background .label {
   -fx-text-fill: white;
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
   -fx-font-size: 20px;
 }
+/* стиль для строк в таблице */
 .table .table-row-cell:selected {
   -fx-background-color: #323838;
 }
@@ -102,12 +111,14 @@
 .table .table-row-cell {
   -fx-background-color: transparent;
 }
+/* стиль ячейки в таблице */
 .table .table-cell {
   -fx-text-fill: white;
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
   -fx-font-size: 18px;
 }
+/* стиль ползунка в таблице */
 .table .scroll-bar:vertical .thumb {
   -fx-background-color: #0effff;
 }
@@ -123,19 +134,19 @@
 .table .column-header-background .filler {
   -fx-background-color: transparent;
 }
-
+/* стиль для небольшого текста */
 .text_other {
   -fx-text-fill: #999999;
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
   -fx-font-size: 20px;
 }
+/* текст для нбольших кнопок */
 .buttons_pm {
   -fx-background-color: #090909d0;
   -fx-text-fill: #999999;
   -fx-font-family: "Iosevka NF Heavy Obl";
   -fx-font-style: italic;
-  /* -fx-underline: true; */
   -fx-font-size: 25px;
   -fx-border-radius: 10px;
   -fx-border-width: 2px;
@@ -146,15 +157,16 @@
   -fx-text-fill: #26beb1;
   -fx-cursor: hand;
 }
+/* стиль для скролла */
 .scroll-pan {
   -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
 }
 .scroll-pan .viewport {
   -fx-background-color: black;
 }
+/* стиль для сетки */
 .grid {
   -fx-background-color: linear-gradient(#0d2322 0%, #323838 100%);
-
   -fx-alignment: center;
 }
 .scroll-pan .scroll-bar:vertical,

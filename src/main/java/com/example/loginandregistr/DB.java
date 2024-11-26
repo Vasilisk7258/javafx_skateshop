@@ -14,6 +14,7 @@ public class DB {
     String USER = "postgres";
     String PASSWORD = "1234";
     Connection conn = null;
+    //Функция для создания подключения к базе данных
     public void geDBConnection() throws ClassNotFoundException, SQLException{
         Class.forName("org.postgresql.Driver");
         try{
@@ -29,6 +30,7 @@ public class DB {
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, mail);
         ResultSet res = statement.executeQuery();
+        //проверка на существование пользователя с такой почтой
         if(res.next()) {
             conn = null;
             return "Пользователь с таким адресом электронной почты уже существует";
@@ -73,6 +75,7 @@ public class DB {
         String sql;
         sql = "select * from select_products(?, ?)";
         PreparedStatement statement = conn.prepareStatement(sql);
+        //если выбраны все производители, то происходит выборка всех товаров
         if(manufacturere.contains("все ")){
             manufacturere = "";
         }
@@ -99,6 +102,7 @@ public class DB {
         conn = null;
         return prlist;
     }
+    //обновление фото товара
     public void updateImage(File file, Product product) throws SQLException, ClassNotFoundException, FileNotFoundException, IOException {
         geDBConnection();
         try(FileInputStream fis = new FileInputStream(file)) {

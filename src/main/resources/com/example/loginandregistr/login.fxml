@@ -20,7 +20,7 @@
                <image>
                   <Image url="@../../../logo.png" />
                </image></ImageView>
-            <Label styleClass="textRegAndLog" text="вход">
+            <Label styleClass="textRegAndLog" text="почта">
                <font>
                   <Font name="Iosevka NF Heavy Oblique" size="31.0" />
                </font>
